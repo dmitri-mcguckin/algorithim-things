@@ -60,7 +60,7 @@ void partition_sort(int* array, const int lo, const int hi){
   }
 }
 
-const int brute_force_pattern_search(const char* pattern, const char* text){
+const int brute_force_search(const char* pattern, const char* text){
     int n, m;
 
     n = strlen(text);
@@ -73,8 +73,6 @@ const int brute_force_pattern_search(const char* pattern, const char* text){
                 printf("\'%c\' == \'%c\'\n", pattern[j], text[i + j]);
                 if(pattern[j] != text[i + j])
                     ++diff;
-
-
         }
 
         if(!diff)
@@ -83,6 +81,23 @@ const int brute_force_pattern_search(const char* pattern, const char* text){
     return -1;
 }
 
-const int better_pattern_search(const char* pattern, const char* text){
+const int smart_search(const char* pattern, const char* text){
+  const int pattern_size = strlen(pattern) - 1;
+  const int text_size = strlen(text) - 1;
+  int pattern_table[pattern_size];
+  int ascii_table[256];
+
+  // Create pattern table
+  for(int i = 0, j = pattern_size - 1; i < pattern_size - 1; ++i, --j)
+    pattern_table[i] = j;
+  pattern_table[pattern_size - 1] = pattern_size;
+
+  // Create ascii table
+  for(int i = 0; i < 255; ++i)
+    ascii_table[i] = pattern_size;
+
+  for(int i = 0;i < pattern_size; ++i)
+    ascii_table[pattern[i]] = pattern_table[i];
+
   return -1;
 }

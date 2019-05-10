@@ -30,8 +30,10 @@ int main(const int argc, const char** argv){
     int search_1, search_2;
     fgets(pattern, SIZE, stdin);
     fgets(text, SIZE, stdin);
+    pattern[strlen(pattern)] = '\0';
+    text[strlen(text)] = '\0';
 
-    search_1 = brute_force_pattern_search(pattern, text);
+    search_1 = brute_force_search(pattern, text);
     search_2 = smart_search(pattern, text);
 
     if(search_1 != -1){
