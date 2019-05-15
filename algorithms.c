@@ -101,11 +101,13 @@ const int smart_search(const char* pattern, const char* text){
   for(int i = 0;i < pattern_size; ++i)
     ascii_table[pattern[i]] = pattern_table[i];
 
-  // Search
-  do{
-    for(int i = pattern_size; i >= i - pattern_size)
-
-  }while();
+  int found = -1;
+  for(int i = 0;i < text_size;i) {
+    for(int j = pattern_size;j > 0;j-1) {
+      if(pattern[j] != text[i+j])
+        break;
+    }
+  }
 
   return -1;
 }
