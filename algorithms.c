@@ -8,6 +8,8 @@ const int factorial(const int n){
             return n *  factorial(n - 1);
 }
 
+// smartsearch6LastName.cpp
+
 const int choose(const int n, const int k){
    if(k == 1)
           return n;
@@ -98,6 +100,12 @@ const int smart_search(const char* pattern, const char* text){
 
   for(int i = 0;i < pattern_size; ++i)
     ascii_table[pattern[i]] = pattern_table[i];
+
+  // Search
+  do{
+    for(int i = pattern_size; i >= i - pattern_size)
+
+  }while();
 
   return -1;
 }
