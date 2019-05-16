@@ -1,7 +1,7 @@
 #include "utilities.h"
 
 const int* create_array(const int size){
-  int array[size];
+  int *array = malloc( sizeof(int) * size);
   for(int i = 0; i < size; ++i)
       array[i] = floor(1000 * drand48());
   return array;
