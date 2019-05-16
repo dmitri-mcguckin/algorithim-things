@@ -8,6 +8,8 @@ const int factorial(const int n){
             return n *  factorial(n - 1);
 }
 
+// smartsearch6LastName.cpp
+
 const int choose(const int n, const int k){
    if(k == 1)
           return n;
