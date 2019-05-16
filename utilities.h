@@ -9,7 +9,7 @@
 #include <ctype.h>
 
 #define MIL 1000000
-#define DEBUG 1
+#define DEBUG 0
 
 const char* strip(char*);
 const int* create_array(const int);
