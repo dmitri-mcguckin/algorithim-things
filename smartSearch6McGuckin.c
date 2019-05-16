@@ -8,6 +8,7 @@
 /*
   Authored by Dmitri McGuckin and Sam Shippey
   For CS 350: Algorithms
+  Tuseday-Thursday class
 
   Usage:
     $ cc smartSearch6McGuckin.c -lm -g
@@ -15,7 +16,7 @@
 
     Example:
     $ ./a.out < demo_1.txt
-    
+
     Will now search 10 lines of text for pattern: "the".
 
     (line 1, column 69):
