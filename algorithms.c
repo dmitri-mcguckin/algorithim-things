@@ -83,12 +83,12 @@ const int brute_force_search(const char* pattern, const char* text){
     return -1;
 }
 
-// Walk backwards through array and then when 
-// we find a mismatch we need to look at the 
+// Walk backwards through array and then when
+// we find a mismatch we need to look at the
 // ascii table and then shift that far right.
 const int smart_search(const char* pattern, const char* text){
-  const int pattern_size = strlen(pattern) - 1;
-  const int text_size = strlen(text) - 1;
+  const int pattern_size = strlen(pattern);
+  const int text_size = strlen(text);
   int pattern_table[pattern_size];
   int ascii_table[256];
 
@@ -101,8 +101,13 @@ const int smart_search(const char* pattern, const char* text){
   for(int i = 0; i < 256; ++i)
     ascii_table[i] = pattern_size;
 
-  for(int i = 0;i < pattern_size+1; ++i)
+  for(int i = 0; i < pattern_size - 1; ++i)
     ascii_table[pattern[i]] = pattern_table[i];
+
+  printf("\nPattern Table: ");
+  print_array(pattern_table, pattern_size);
+  printf("ASCII Table: ");
+  print_array(ascii_table, 256);
 
   int found = 0;
   int loc = 0;

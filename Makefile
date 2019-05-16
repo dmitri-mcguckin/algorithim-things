@@ -2,17 +2,18 @@ CC=cc
 FLAGS=-lm
 HEAD=*.h
 SRC=*.c
-EXE=array
+EXE=cs-350
+INPUT=demo_1.txt
 
 all: $(HEAD)
 	$(CC) $(SRC) $(FLAGS) -o $(EXE)
 
-test: 
+test:
 	$(CC) $(SRC) $(FLAGS) -g -o $(EXE)
 
 e: execute
 execute: all
-	./$(EXE)
+	./$(EXE) < $(INPUT)
 
 c: clean
 clean:

@@ -3,41 +3,18 @@
 #include "utilities.h"
 
 int main(const int argc, const char** argv){
-    /*if(argc <= 1){
-      printf("usage: ./array <array size>\n");
-      exit(1);
-    }
+    char text_count[MIL], text[MIL], pattern[MIL];
 
-    const int size = argc - 1;
-    int array[size];
+    scanf("%s\n", text_count);
+    scanf("%s\n", pattern);
 
-    for(int i = 0; i < size; ++i){
-      int value = atoi(argv[i + 1]);
-      array[i] = value;
-    }
+    printf("Will now search %s lines of text for pattern: \'%s\'\n", text_count, pattern);
 
-    printf("Unsorted array: ");
-    print_array(array, size);
+    for(int i =0; i < atoi(text_count); ++i){
+      scanf("%s\n", text);
+      int search_index = smart_search(pattern, text);
 
-    partition_sort(array, 0, size - 1);
-
-    printf("Sorted array: ");
-    print_array(array, size);*/
-
-    const int SIZE = 100;
-    char pattern[SIZE];
-    char text[SIZE];
-    int search_1, search_2;
-    fgets(pattern, SIZE, stdin);
-    fgets(text, SIZE, stdin);
-    pattern[strlen(pattern)] = '\0';
-    text[strlen(text)] = '\0';
-
-    search_1 = smart_search(pattern, text);
-    if(search_1 != -1){
-      printf("[Smart search] pattern found at: %i\n", search_1);
-    }
-    else{
-      printf("[Smart search] pattern not found!\n");
+      if(search_index != -1)
+        printf("%s\n");
     }
   }
