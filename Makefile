@@ -10,7 +10,7 @@ all: $(HEAD)
 
 s: single
 single:
-	$(CC) smartSearch6McGuckin.c $(FLAGS) -g
+	$(CC) smartSearch6McGuckinDmitri.c $(FLAGS) -g
 
 e: execute
 execute: all
