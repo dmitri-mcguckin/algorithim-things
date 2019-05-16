@@ -114,20 +114,51 @@ const int smart_search(const char* pattern, const char* text){
   }
 
   // Smart search
+  int point = pattern_size - 1;
   int found = 0;
-  int loc = 0;
-  while(found == 0 && loc < text_size) {
-    int move = -1;
-    for(int j = pattern_size-1;j >= 0;j--) {
-      if(pattern[j] != text[loc+j]) {
-        move = ascii_table[pattern[j]];
+  int location = 0;
+
+  while(point <= text_size - 1){
+    if(DEBUG)
+      printf("text[%i] = \'%c\'\n", point, text[point]);
+
+    for(int i = point; i >= (point - pattern_size); --i){
+      if(pattern[i] != text[(i % point) - 1]){
+        found = 0;
+        break;
+      }
+      else if(i == 0){
+        found = 1;
+        location = i;
+        break;
       }
     }
-    if (move != -1)
-      loc += move;
-    else
-      return loc;
+
+    if(found){
+      return location;
+    }
+    else{
+      point += ascii_table[text[point]];
+      if(DEBUG)
+        printf("Shifting by %i at point %i\n", ascii_table[text[point]], point);
+    }
   }
+
+  if(DEBUG)
+    printf("Point out of bounds! (text size: %i, point: %i)", text_size, point);
+
+  // while(found == 0 && loc < text_size) {
+  //   int move = -1;
+  //   for(int j = pattern_size-1;j >= 0;j--) {
+  //     if(pattern[j] != text[loc+j]) {
+  //       move = ascii_table[pattern[j]];
+  //     }
+  //   }
+  //   if (move != -1)
+  //     loc += move;
+  //   else
+  //     return loc;
+  // }
 
   return -1;
 }
