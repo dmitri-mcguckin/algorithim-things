@@ -1,5 +1,10 @@
+#
 # Custom things
-cs-350 # Executable
+#
+
+# Executables
+cs-350
+a.out
 
 # Array
 array

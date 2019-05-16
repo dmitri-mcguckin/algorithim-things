@@ -8,8 +8,9 @@ INPUT=demo_1.txt
 all: $(HEAD)
 	$(CC) $(SRC) $(FLAGS) -o $(EXE)
 
-test:
-	$(CC) $(SRC) $(FLAGS) -g -o $(EXE)
+s: single
+single:
+	$(CC) smartSearch6McGuckin.c $(FLAGS) -g
 
 e: execute
 execute: all
@@ -17,4 +18,4 @@ execute: all
 
 c: clean
 clean:
-	rm -rf *.o $(EXE)
+	rm -rf *.o $(EXE) a.out
