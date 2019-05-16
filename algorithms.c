@@ -81,6 +81,9 @@ const int brute_force_search(const char* pattern, const char* text){
     return -1;
 }
 
+// Walk backwards through array and then when 
+// we find a mismatch we need to look at the 
+// ascii table and then shift that far right.
 const int smart_search(const char* pattern, const char* text){
   const int pattern_size = strlen(pattern) - 1;
   const int text_size = strlen(text) - 1;
@@ -99,12 +102,20 @@ const int smart_search(const char* pattern, const char* text){
   for(int i = 0;i < pattern_size; ++i)
     ascii_table[pattern[i]] = pattern_table[i];
 
-  int found = -1;
-  for(int i = 0;i < text_size;i) {
+  int found = 0;
+  int loc = 0;
+  while(found == 0 && loc > text_size) {
+    int move = -1;
     for(int j = pattern_size;j > 0;j-1) {
-      if(pattern[j] != text[i+j]) 
+      if(pattern[j] != text[loc+j]) {
+        move = ascii_table[pattern[j]];
         break;
+      }
     }
+    if (move != -1)
+      loc += move;
+    else
+      return loc;
   }
 
   return -1;
