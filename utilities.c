@@ -1,5 +1,10 @@
 #include "utilities.h"
 
+const char* strip(char* string){
+  string[strlen(string) - 1] = '\0';
+  return string;
+}
+
 // Make sure to free this as it allocates
 // dynamic memory.
 const int* create_array(const int size){

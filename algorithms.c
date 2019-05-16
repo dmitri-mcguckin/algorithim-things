@@ -104,10 +104,12 @@ const int smart_search(const char* pattern, const char* text){
   for(int i = 0; i < pattern_size - 1; ++i)
     ascii_table[pattern[i]] = pattern_table[i];
 
-  printf("\nPattern Table: ");
-  print_array(pattern_table, pattern_size);
-  printf("ASCII Table: ");
-  print_array(ascii_table, 256);
+  if(DEBUG){
+    printf("\nPattern Table: ");
+    print_array(pattern_table, pattern_size);
+    printf("ASCII Table: ");
+    print_array(ascii_table, 256);
+  }
 
   int found = 0;
   int loc = 0;
