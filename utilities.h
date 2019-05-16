@@ -6,6 +6,7 @@
 #include <time.h>
 #include <math.h>
 #include <string.h>
+#include <ctype.h>
 
 #define MIL 1000000
 #define DEBUG 0
