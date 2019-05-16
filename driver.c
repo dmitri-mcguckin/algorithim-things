@@ -20,7 +20,7 @@ int main(const int argc, const char** argv){
 
       // Output the line with indicator and info if found
       if(search_index != -1){
-        printf("\n(line %i, column %i):\n%s\n", (i + 1), search_index, text);
+        printf("\n(line %i, column %i):\n%s\n", (i + 1), (search_index + 1), text);
         for(int i = 1; i < search_index; ++i)
           printf(" ");
         printf("^");
