@@ -104,7 +104,8 @@ const int smart_search(const char* pattern, const char* text){
   for(int i = 0; i < pattern_size - 1; ++i)
     ascii_table[pattern[i]] = pattern_table[i];
 
-  if(DEBUG){
+  if(0){
+    printf("pattern: %s\ntext: %s", pattern, text);
     printf("\nPattern Table: ");
     print_array(pattern_table, pattern_size);
     printf("ASCII Table: ");
@@ -113,12 +114,11 @@ const int smart_search(const char* pattern, const char* text){
 
   int found = 0;
   int loc = 0;
-  while(found == 0 && loc < text_size + 1) {
+  while(loc < text_size + 1) {
     int move = -1;
-    for(int j = pattern_size-1;j >= 0;j--) {
-      if(pattern[j] != text[loc+j]) {
-        move = ascii_table[pattern[j]];
-      }
+    for(int j = pattern_size-1; j >= 0; j--) {
+      if(pattern[j] != text[loc+j])
+        move = ascii_table[text[loc+j-1]];
     }
     if (move != -1)
       loc += move;
