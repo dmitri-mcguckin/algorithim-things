@@ -1,7 +1,9 @@
 #include "utilities.h"
 
+// Make sure to free this as it allocates
+// dynamic memory.
 const int* create_array(const int size){
-  int *array = malloc( sizeof(int) * size);
+  int *array = malloc(sizeof(int) * size);
   for(int i = 0; i < size; ++i)
       array[i] = floor(1000 * drand48());
   return array;
