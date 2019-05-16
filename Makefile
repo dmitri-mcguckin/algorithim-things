@@ -7,6 +7,9 @@ EXE=array
 all: $(HEAD)
 	$(CC) $(SRC) $(FLAGS) -o $(EXE)
 
+test: 
+	$(CC) $(SRC) $(FLAGS) -g -o $(EXE)
+
 e: execute
 execute: all
 	./$(EXE)
