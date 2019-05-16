@@ -106,9 +106,9 @@ const int smart_search(const char* pattern, const char* text){
 
   int found = 0;
   int loc = 0;
-  while(found == 0 && loc > text_size) {
+  while(found == 0 && loc < text_size + 1) {
     int move = -1;
-    for(int j = pattern_size;j > 0;j-1) {
+    for(int j = pattern_size-1;j >= 0;j--) {
       if(pattern[j] != text[loc+j]) {
         move = ascii_table[pattern[j]];
         break;
