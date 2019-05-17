@@ -11,4 +11,6 @@ void partition_sort(int*, const int, const int);
 const int brute_force_search(const char*, const char*);
 const int smart_search(const char*, const char*);
 
+const int recursive_pebble_search(const int**, const int, const int);
+
 #endif

@@ -133,3 +133,23 @@ const int smart_search(const char* pattern, const char* text){
 
   return -1;
 }
+
+const int recursive_pebble_search(const int** map, const int row, const int col){
+  if(row < 0 || col < 0)
+    return 0;
+
+  int up, left, max, pebble = 0;
+
+  if(map[row][col] != 0)
+    pebble = 1;
+
+  up = recursive_pebble_search(map, row - 1, col);
+  left = recursive_pebble_search(map, row, col - 1);
+
+  if(up > left)
+    max = up;
+  else
+    max = left;
+
+  return pebble + max;
+}
