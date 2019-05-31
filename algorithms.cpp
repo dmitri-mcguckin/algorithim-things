@@ -1,6 +1,20 @@
 #include "algorithms.h"
-#include "utilities.h"
 
+//
+// Edge implementation
+//
+Edge::Edge() : point_1('~'), point_2('~'), weight(0) {}
+
+Edge::Edge(const char point_1, const char point_2, const int weight) : point_1(point_1), point_2(point_2), weight(weight) {}
+
+ostream& operator<<(ostream& buffer, const Edge& src){
+  buffer << "<" << src.point_1<< ", " << src.point_2 << ", " << src.weight << ">";
+  return buffer;
+}
+
+//
+// Regular Algroithm things
+//
 const int factorial(const int n){
         if(n >= 0)
             return 1;

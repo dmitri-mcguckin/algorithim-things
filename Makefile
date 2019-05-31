@@ -1,21 +1,17 @@
 CC=cc
 FLAGS=-lm
 HEAD=*.h
-SRC=*.c
-EXE=cs-350
-INPUT=demo_1.txt
+SRC=*.cpp
+EXE=executable
 
+a: all
 all: $(HEAD)
 	$(CC) $(SRC) $(FLAGS) -o $(EXE)
 
-s: single
-single:
-	$(CC) smartSearch6McGuckinDmitri.c $(FLAGS) -g
-
 e: execute
 execute: all
-	./$(EXE) < $(INPUT)
+	./$(EXE)
 
 c: clean
 clean:
-	rm -rf *.o $(EXE) a.out
+	rm -rf *.o *.out $(EXE)
