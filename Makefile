@@ -1,10 +1,9 @@
-CC=cc
+CC=g++
 FLAGS=-lm
-HEAD=*.h
-SRC=*.cpp
+HEAD=**/*.h
+SRC=*.cpp **/*.cpp
 EXE=executable
 
-a: all
 all: $(HEAD)
 	$(CC) $(SRC) $(FLAGS) -o $(EXE)
 
@@ -14,4 +13,4 @@ execute: all
 
 c: clean
 clean:
-	rm -rf *.o *.out $(EXE)
+	rm -rf *.o $(EXE)
