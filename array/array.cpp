@@ -64,7 +64,7 @@ const bool Array::remove(const Edge number){
 }
 
 const bool Array::sort(){
-  sort(0, arr_size - 1);
+  sort(data, 0, arr_size);
 
   // Post sort verification
   bool is_sorted = true;
@@ -79,11 +79,23 @@ const bool Array::sort(){
   return is_sorted;
 }
 
-void Array::sort(const int lo, const int hi){
-  // int i = lo, int j =
-  Edge temp = data[5];
-  data[5] = data[0];
-  data[0] = temp;
+void Array::sort(const Edge*& array, const int i_lo, const int i_hi){
+  int size = i_hi - i_lo;
+  int mid = size / 2;
+
+  if(size == 0)
+    return;
+  elif(size == 1){
+    if(array[])
+  }
+
+  Edge* left = new Edge[mid - i_lo];
+  Edge* right = new Edge[i_hi - mid + 1]
+
+  sort(left, i_lo, mid);
+  sort(right, mid + 1, i_hi);
+
+  
 }
 
 const Edge Array::operator [] (const int index){
