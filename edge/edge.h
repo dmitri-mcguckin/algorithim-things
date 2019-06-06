@@ -27,6 +27,11 @@ class Edge{
     const bool operator != (const Edge&);
 
     friend ostream& operator << (ostream&, const Edge&);
+
+    // Disgusting non-OO getters
+    // It must be done
+    char get_start();
+    char get_end();
 };
 
 #endif
