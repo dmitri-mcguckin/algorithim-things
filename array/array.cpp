@@ -80,7 +80,56 @@ const bool Array::sort(){
 }
 
 void Array::sort(Edge* array, const int i_lo, const int i_hi){
+  int size = right - left;
+  int mid = size / 2;
 
+  if(size <= 1)
+    return;
+
+  int a_left[mid];
+  for(int i = 0; i < mid; ++i)
+    a_left[i] = array[i + left];
+
+  int a_right[mid];
+  for(int i = 0; i < mid; ++i)
+    a_right[i] = array[i + mid];
+
+  merge_sort(a_left, left, mid);
+  merge_sort(a_right, mid, right - 1);
+
+  int i = 0, j = 0, k = 0;
+  int temp[size];
+
+  while(i < mid && j < mid){
+    if(a_left[i] < a_right[j]){
+      temp[k] = a_left[i];
+      ++i;
+    }
+    else{
+      temp[k] = a_right[j];
+      ++j;
+    }
+
+    ++k;
+  }
+
+  while(i < mid){
+    temp[k] = a_left[i];
+    ++i;
+    ++k;
+  }
+
+  while(j < mid){
+    temp[k] = a_right[j];
+    ++j;
+    ++k;
+  }
+
+  for(int a = 0; a < size; ++a)
+    array[a] = temp[a];
+
+  cout << "Temp: ";
+  print_array(temp, size);
 }
 
 const Edge Array::operator [] (const int index){

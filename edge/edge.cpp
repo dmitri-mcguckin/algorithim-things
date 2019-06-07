@@ -24,5 +24,5 @@ ostream& operator << (ostream& buffer, const Edge& src){
 }
 
 char Edge::get_start() { return vertex_1; }
-char Edge::get_end() { return vertex_1; }
+char Edge::get_end() { return vertex_2; }
 
