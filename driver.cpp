@@ -50,5 +50,8 @@ int main(const int argc, const char** argv){
 
   cout << edges << endl;
 
+  cout << node_count << endl;
+  edges.build_tree(node_count);
+
   return 0;
 }
