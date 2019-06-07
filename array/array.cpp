@@ -135,8 +135,9 @@ bool Array::build_tree(const int vertices) {
   for (int i = 0; i < vertices; i++)
     trees[i] = 0;
   int highest_tree = 1;
+  bool done = false;
   // Add vertices to tree, avoiding cycles
-  for (int i = 0; i < arr_size; i++) {
+  for (int i = 0; i < arr_size && !done; i++) {
     int start_tree = trees[data[i].get_start()];
     int end_tree = trees[data[i].get_end()];
     // Not a cycle. Add to list.
@@ -148,12 +149,18 @@ bool Array::build_tree(const int vertices) {
           trees[data[i].get_start()] = end_tree;
       }
       else {
-        // Not currently connected to a tree
+        // Both not currently connected to a tree
         // So make a new tree
         end_tree = highest_tree;
         start_tree = highest_tree;
         highest_tree++;
       }
+    }
+    for (int n=0; n < vertices-1; n++) {
+      if (trees[n] == 0 || trees[n] != trees[n+1])
+        break;
+      else
+        done = true;
     }
   }
   cout << tree << endl;
