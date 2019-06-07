@@ -79,34 +79,33 @@ const bool Array::sort(){
   return is_sorted;
 }
 
-void Array::sort(const Edge*& array, const int i_lo, const int i_hi){
+void Array::sort(Edge*& array, const int i_lo, const int i_hi){
   int size = i_hi - i_lo;
   int mid = size / 2;
 
   if(size == 0)
     return;
-  elif(size == 1){
-    if(array[])
-  }
+  else if(size == 1){
+    //if(array[])
+    //}
 
-  Edge* left = new Edge[mid - i_lo];
-  Edge* right = new Edge[i_hi - mid + 1]
+    Edge* left = new Edge[mid - i_lo];
+  Edge* right = new Edge[i_hi - mid + 1];
 
   sort(left, i_lo, mid);
   sort(right, mid + 1, i_hi);
-
-  
+}
 }
 
-const Edge Array::operator [] (const int index){
+const Edge Array::operator [] (const int index) {
   Edge temp;
-  if(index >= 0 && index < arr_size)
+  if (index >= 0 && index < arr_size)
     temp = data[index];
   return temp;
 }
 
-ostream& operator << (ostream& buffer, const Array& src){
-  if(src.data)
+ostream& operator << (ostream& buffer, const Array& src) {
+  if(src.data) {
     for(int i = 0; i < src.arr_size; ++i){
       if(i == 0)
         buffer << " [ ";
@@ -120,7 +119,7 @@ ostream& operator << (ostream& buffer, const Array& src){
       else
         cout << endl;
     }
-
+  }
   return buffer;
 }
 
