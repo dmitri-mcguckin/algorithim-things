@@ -142,6 +142,10 @@ bool Array::build_tree(const int vertices) {
     // Not a cycle. Add to list.
     if (start_tree != end_tree) {
       if (start_tree != 0 || end_tree != 0) {
+        if ( start_tree < end_tree) 
+          trees[data[i].get_end()] = start_tree;
+        else
+          trees[data[i].get_start()] = end_tree;
       }
       else {
         // Not currently connected to a tree
@@ -152,26 +156,5 @@ bool Array::build_tree(const int vertices) {
       }
     }
   }
-
   cout << tree << endl;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
