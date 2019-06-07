@@ -123,3 +123,55 @@ ostream& operator << (ostream& buffer, const Array& src){
 
   return buffer;
 }
+
+bool Array::build_tree(const int vertices) { 
+  // Sort if we haven't already
+  sort();
+  Array tree;
+
+  // Arranged in alphabetical order
+  int trees[vertices];
+  // Initialize tree number to 0
+  for (int i = 0; i < vertices; i++)
+    trees[i] = 0;
+  int highest_tree = 1;
+  // Add vertices to tree, avoiding cycles
+  for (int i = 0; i < arr_size; i++) {
+    int start_tree = trees[data[i].get_start()];
+    int end_tree = trees[data[i].get_end()];
+    // Not a cycle. Add to list.
+    if (start_tree != end_tree) {
+      if (start_tree != 0 || end_tree != 0) {
+      }
+      else {
+        // Not currently connected to a tree
+        // So make a new tree
+        end_tree = highest_tree;
+        start_tree = highest_tree;
+        highest_tree++;
+      }
+    }
+  }
+
+  cout << tree << endl;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -22,3 +22,7 @@ ostream& operator << (ostream& buffer, const Edge& src){
   buffer << "{ " << src.vertex_1 << ", " << src.vertex_2 << ", " << src.weight << " }";
   return buffer;
 }
+
+char Edge::get_start() { return vertex_1; }
+char Edge::get_end() { return vertex_1; }
+

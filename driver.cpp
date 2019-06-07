@@ -46,7 +46,7 @@ int main(const int argc, const char** argv){
   if(edges.sort())
     cout << "Here's a list of the edges from file (read as non-directional)" << endl;
   else
-    cout << "There was an oopsie trying to sort the array! :(" << endl << "This is what I was ableto do so far: " << endl;
+    cout << "There was an oopsie trying to sort the array! :(" << endl << "This is what I was able to do so far: " << endl;
 
   cout << edges << endl;
 

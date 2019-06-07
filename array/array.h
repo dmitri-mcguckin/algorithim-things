@@ -28,6 +28,8 @@ class Array{
     const bool sort(); // Wrapper of the sort
     const Edge operator [] (const int);
     friend ostream& operator << (ostream&, const Array&);
+
+    bool build_tree(const int);
 };
 
 #endif

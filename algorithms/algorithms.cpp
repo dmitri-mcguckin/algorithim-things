@@ -98,7 +98,7 @@ const int brute_force_pattern_search(const char* pattern, const char* text){
         int diff = 0;
 
         for(int j = 0; j < m && diff == 0; ++j){
-                printf("\'%c\' == \'%c\'\n", pattern[j], text[i + j]);
+                //printf("\'%c\' == \'%c\'\n", pattern[j], text[i + j]);
                 if(pattern[j] != text[i + j])
                     ++diff;
         }
