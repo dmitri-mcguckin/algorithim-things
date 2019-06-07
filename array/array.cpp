@@ -64,7 +64,7 @@ const bool Array::remove(const Edge number){
 }
 
 const bool Array::sort(){
-  sort(data, 0, arr_size);
+  sort();
 
   // Post sort verification
   bool is_sorted = true;
@@ -79,23 +79,8 @@ const bool Array::sort(){
   return is_sorted;
 }
 
-void Array::sort(const Edge*& array, const int i_lo, const int i_hi){
-  int size = i_hi - i_lo;
-  int mid = size / 2;
+void Array::sort(Edge* array, const int i_lo, const int i_hi){
 
-  if(size == 0)
-    return;
-  elif(size == 1){
-    if(array[])
-  }
-
-  Edge* left = new Edge[mid - i_lo];
-  Edge* right = new Edge[i_hi - mid + 1]
-
-  sort(left, i_lo, mid);
-  sort(right, mid + 1, i_hi);
-
-  
 }
 
 const Edge Array::operator [] (const int index){
@@ -124,7 +109,7 @@ ostream& operator << (ostream& buffer, const Array& src){
   return buffer;
 }
 
-bool Array::build_tree(const int vertices) { 
+bool Array::build_tree(const int vertices) {
   // Sort if we haven't already
   sort();
   Array tree;
@@ -143,7 +128,7 @@ bool Array::build_tree(const int vertices) {
     // Not a cycle. Add to list.
     if (start_tree != end_tree) {
       if (start_tree != 0 || end_tree != 0) {
-        if ( start_tree < end_tree) 
+        if ( start_tree < end_tree)
           trees[data[i].get_end()] = start_tree;
         else
           trees[data[i].get_start()] = end_tree;
@@ -164,4 +149,5 @@ bool Array::build_tree(const int vertices) {
     }
   }
   cout << tree << endl;
+  return true;
 }

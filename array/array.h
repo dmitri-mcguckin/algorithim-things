@@ -13,7 +13,7 @@ class Array{
     int arr_size;
     Edge* data;
 
-    void sort(const Edge*&, const int, const int); // Recursive of the sort
+    void sort(Edge*, const int, const int); // Recursive of the sort
 
   public:
     // Constructors / destructors
