@@ -155,8 +155,6 @@ bool Array::build_tree(const int vertices) {
         start_tree = highest_tree;
         highest_tree++;
       }
-    }
-    else {
       tree.append(data[i]);
       cout << "Check" << endl;
     }
